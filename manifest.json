@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "teeshirt tool",
+  "description": "This is the teeshirt tool extension",
+  "version": "1.0",
+  "permissions": [
+    "https://teespring.com/*",
+    "https://www.teezily.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://teespring.com/*", "https://www.teezily.com/*"],
+      "js": ["source.mp3"]
+    }
+  ]
+}

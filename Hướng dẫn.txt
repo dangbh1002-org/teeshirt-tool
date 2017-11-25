@@ -1,0 +1,11 @@
+﻿*Lưu ý: Tool sẽ chạy dựa trên những cài đặt của sản phẩm post cuối cùng trước đó, hãy đảm bảo sản phẩm đó đã đạt yêu cầu trước khi bật tool.
+
+Bước 1:
+TeeSpring bắt đầu chạy tool bằng đường dẫn: https://teespring.com/design-launcher
+TeeZily bắt đầu chạy tool bằng đường dẫn: https://www.teezily.com/account/campaigns
+
+Bước 2:
+Tool sẽ tạm dừng ở trang thêm ảnh. Bạn chỉ cần thêm ảnh rồi "Next".
+
+Bước 3:
+Tool sẽ tiếp tục chạy và đưa bạn tới trang cuối cùng. Phần còn lại ở trang cuối cùng này là của bạn.

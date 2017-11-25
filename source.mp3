@@ -1,0 +1,143 @@
+
+var TeeSpring = {
+  step1: function () {
+    var Loop = setInterval(function () {
+      var el = document.querySelector("img[alt='Apparel']");
+        if(el){
+          clearInterval(Loop);
+          el.click();
+        }
+    },1000);
+  },
+  step2: function () {
+
+    window.addEventListener('popstate', function () {
+
+      if(window.location.href.indexOf('/0/design') !== -1){
+        var Loop = setInterval(function () {
+          var el = document.querySelector("#load-campaign-settings-button");
+            if(el){
+              clearInterval(Loop);
+              document.querySelector('#load-campaign-settings-button').click();
+              document.querySelector('.listview-list').lastChild.click();
+
+              document.querySelector("li.tab[data-name='Art']").children[0].click();
+              document.querySelector("button.upload-artwork").click();
+
+            }
+        },1000);
+      }
+
+      if(window.location.href.indexOf('/1/design') !== -1){
+        var Loop = setInterval(function () {
+          var el = document.querySelector("#nextPage");
+            if(el){
+              clearInterval(Loop);
+              el.click();
+              Loop1();
+            }
+        },1000);
+      }
+
+      function Loop1() {
+        var Loop = setInterval(function () {
+          var el = document.querySelector("#submit_pricing");
+            if(el){
+              clearInterval(Loop);
+              el.click();
+            }
+        },1000);
+      }
+
+      if(window.location.href.indexOf('/3/details') !== -1){
+
+        var Loop = setInterval(function () {
+          var el = document.querySelector('#name')
+          if(el){
+            clearInterval(Loop);
+            el.onchange = function () {
+              var urlValue = el.value.replace(/[^\w\s]/gi, '-').replace(/\s/gi, '-').toLowerCase();
+              document.querySelector('#url').value = (urlValue + '-' + (Math.floor(Math.random() * 9999) + 1000)).slice(0, 30);
+            }
+          }
+        },1000);
+      }
+
+    });
+  }
+}
+
+var Teezily = function () {};
+
+Teezily.prototype = {
+  step1: function () {
+    var _this = this;
+    var Loop = setInterval(function () {
+      var el = document.querySelector('th[ng-click="handleSortingDirection(\'published_at\')"]');
+      if(el){
+        clearInterval(Loop);
+        el.click();
+        createSimilar();
+
+      }
+    },1000);
+
+    function createSimilar() {
+      var Loop = setInterval(function () {
+        var item = document.querySelector('.dashboard-campaign');
+        if(item){
+          var today = document.querySelector('.dashboard-campaign').querySelector('.dashboard-campaigns-status__time span').innerHTML;
+          if(today === "7 days"){
+            clearInterval(Loop);
+            var link = item.querySelector('a[title="Create a similar campaign"]');
+            link.click();
+
+          }
+        }
+      },1000);
+    }
+  },
+
+
+  step2: function () {
+    var _this = this;
+    var Loop = setInterval(function () {
+      var el = document.querySelector('a[href="#lab-design"]');
+      if(el){
+        clearInterval(Loop);
+        el.click();
+
+        document.querySelector('a[tee-step-select="goal"]').addEventListener('click', function () {
+          var Loop = setInterval(function () {
+            var el = document.querySelector('a[tee-step-select="detail"]');
+            var el2 = document.querySelector('.lab-value input');
+            if(el && el2.value == 1){
+              clearInterval(Loop);
+              el.click();
+            }
+          },2000);
+        })
+
+      }
+    },1000);
+  }
+
+}
+
+
+if(window.location.href.indexOf('https://teespring.com/') !== -1){
+
+  if(window.location.href.indexOf('https://teespring.com/design-launcher') !== -1){
+    TeeSpring.step1(); // https://teespring.com/design-launcher
+  } else if(window.location.href.indexOf('https://teespring.com/designs/') !== -1){
+    TeeSpring.step2(); // https://teespring.com/designs/h1hpf9/edit?default_product_group=1#!/b46/0/design
+  }
+
+} else if(window.location.href.indexOf('https://www.teezily.com/') !== -1){
+  var teezily = new Teezily();
+  if(window.location.href.indexOf('https://www.teezily.com/account/campaigns') !== -1){
+    teezily.step1(); // https://www.teezily.com/account/campaigns
+  } else if(window.location.href.indexOf('https://www.teezily.com/campaigns/') !== -1){
+    teezily.step2(); // https://www.teezily.com/campaigns/C-C4756/edit
+  }
+}
